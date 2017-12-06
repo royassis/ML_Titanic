@@ -17,16 +17,6 @@ sex_groups.groups #display groups
 male_frame = sex_groups.get_group('male') #get a specific group
 female_frame = sex_groups.get_group('female')
 
-#Group each sex by age groups
-male_frame =male_frame.groupby("Age_grp",as_index=False).count()
-male_frame["Age_grp"]= male_frame["Age_grp"].astype("float64") #turn cat obj into float type
-female_frame = female_frame.groupby("Age_grp",as_index=False).count()
-female_frame["Age_grp"]= female_frame["Age_grp"].astype("float64")
-
-#plot
-sns.barplot(male_frame["Age_grp"], male_frame["Survived"])
-
-
 
 
 

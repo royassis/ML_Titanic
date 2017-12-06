@@ -28,7 +28,7 @@ merged =female_frame.merge(male_frame,on = "Sex", how = "outer")
 pivoted = merged.pivot("Sex","Age_grp_", "Survived" )
 
 pivoted['index1'] = pivoted.index
-a
+
 
 dframe['index1'].dtypes
 

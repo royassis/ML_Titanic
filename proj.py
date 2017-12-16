@@ -8,6 +8,7 @@ dframe.drop_duplicates(inplace=True)
 dframe.dtypes
 
 
+
 #Binning
 bins= np.linspace(dframe["Age"].min()-1,dframe["Age"].max()+1,11)
 group_names = np.linspace(1,10,10)
@@ -50,6 +51,7 @@ d3 = d3[['PassengerId', 'Survived', 'Pclass', 'Name',"Title", 'Sex', 'Age', 'Sib
 for x in range(4):
     d3["Cabin_#"+str(x+1)]= pd.to_numeric(d3["Cabin_#"+str(x+1)])
 
+d3.to_csv("d3.csv", index = False)
 
 
 """

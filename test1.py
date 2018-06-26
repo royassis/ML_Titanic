@@ -1,26 +1,18 @@
 
 from pcg.imports import *
 
+
 #importing Dataset
 dframe = pd.read_csv("train.csv")
 dframe.drop_duplicates(inplace=True)
 dframe.dtypes
 
-"""
-z = dframe[["Age","Fare","Survived"]].dropna()
-scaler = StandardScaler()
-x= pd.DataFrame(scaler.fit_transform(z[["Age","Fare"]]))
-sm.OLS(z["Survived"],x).fit()
-"""
-
 #Binning
-bins= np.linspace(dframe["Age"].min()-1,dframe["Age"].max()+1,11)
-group_names = np.linspace(1,10,10)
-categories = pd.cut(dframe['Age'], bins, labels=group_names)
-dframe['Age_grp'] = (categories)
+dframe['Age_grp'] = pd.cut(dframe['Age'], 10, labels=False, include_lowest = True)
 
 # extract titles
 dframe["Title"]= dframe["Name"].astype("str").str.extract("([a-zA-Z]+)\.",expand=False)
+
 
 ###
 #extract multiple cabin values to new columns

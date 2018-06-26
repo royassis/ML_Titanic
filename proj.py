@@ -1,13 +1,17 @@
 
 from pcg.imports import *
-from pcg.funcs import *
 
 #importing Dataset
 dframe = pd.read_csv("train.csv")
 dframe.drop_duplicates(inplace=True)
 dframe.dtypes
 
-
+"""
+z = dframe[["Age","Fare","Survived"]].dropna()
+scaler = StandardScaler()
+x= pd.DataFrame(scaler.fit_transform(z[["Age","Fare"]]))
+sm.OLS(z["Survived"],x).fit()
+"""
 
 #Binning
 bins= np.linspace(dframe["Age"].min()-1,dframe["Age"].max()+1,11)
@@ -55,6 +59,7 @@ d3.to_csv("d3.csv", index = False)
 
 
 """
+#Attempt to split cabin column
 
 for index, row in dframe.iterrows():
     dframe.iloc[index, 12]= (str(dframe.iloc[index, 10]).split(" ")) + dframe.iloc[index, 12]
@@ -72,4 +77,45 @@ dframe".loc[dframe["Survived"] ==1].groupby("Sex").count().iloc[0,1]
 
 #present bar plot
 sns.barplot(dframe["Sex"], dframe["Survived"] )
+"""
+
+"""
+#KMeans algorithem 
+
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import scale
+from numpy import random, float
+
+
+model = KMeans(n_clusters=10)
+d = d3[["Age_grp", "Fare"]].dropna()
+
+model = model.fit(scale(d))
+
+plt.scatter(d.iloc[:,0], d.iloc[:,1], c=model.labels_)
+
+"""
+
+"""
+
+x = d3.select_dtypes(exclude = "object").corr()
+x = x.drop(x.iloc[:,7:])
+x = x.drop(x.iloc[:,7:], axis =1)
+plt.imshow(x, cmap='hot', interpolation='nearest')
+
+sb.heatmap(x,annot=True)
+sb.clustermap(x,annot=True)
+"""
+
+
+"""
+# Split-out validation dataset
+array = np.arange(9).reshape(3,3)
+X = array[:,0:2]
+Y = array[:,2]
+validation_size = 0.20
+seed = 7
+X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
+
+d3["Sex"]= d3.Sex.map({"Male" :0, "Fmale" : 1})
 """

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Titanic.iml" filepath="$PROJECT_DIR$/.idea/Titanic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../pandasLesson/.idea/untitled1.iml" filepath="$PROJECT_DIR$/../pandasLesson/.idea/untitled1.iml" />
     </modules>
   </component>
 </project>

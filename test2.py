@@ -1,9 +1,30 @@
 from pcg.imports2 import *
+import re
 
+
+#Data cleaning and preprocessing#
+#-------------------------------#
+
+#Load df from file
 dframe = pd.read_csv("train.csv")
-dframe.fillna(-1, inplace = True)
-dframe.replace(("female","male"),(0,1),inplace= True)
 
+#Split Cabin column into floor and rooms columns
+newframe = dframe.Cabin.str.split(" ", expand=True)
+dframe.Cabin= dframe.Cabin.str.extract('(\w)')
+newframe = newframe.apply(lambda x: x.str.extract('(\d+)'))
+frame = pd.concat([dframe, newframe],axis=1)
+
+#Turn NA values to -1 in order to be used in learning algorithms
+frame.fillna(-1, inplace = True)
+
+#Groupby Ticket and then give each person the count of the group
+dframe[dframe.Ticket.duplicated(keep=False)].sort_values("Ticket")
+grp = dframe[dframe.Ticket.duplicated(keep=False)].groupby("Ticket").size() #people with the same ticket
+
+
+
+#Maching learning#
+#----------------#
 
 # Split-out validation dataset
 array = dframe.values
@@ -39,3 +60,36 @@ for name, model in models:
 
 for x,y in enumerate(dframe.columns):
 	print (x,y,dframe.iloc[x,x])
+
+
+
+
+#Homemade functions#
+#------------------#
+
+def NullColumnPrec(dframe):
+	for i in dframe.columns:
+		print (i, dframe[dframe[i].isnull()].shape[0]/dframe.shape[0])
+
+def UniqueColumnPrec(dframe):
+	arr = []
+	for i in dframe.columns:
+		number = dframe[i].unique().shape[0] / dframe.shape[0]
+		arr.append([i,number])
+	return arr
+
+	for i in arr :
+		print(i, "{:.2f}".format(i[0]))
+
+#Does not work, work in progress
+def text2number(dframe):
+	columns = dframe.dtypes[dframe.dtypes == object].index
+	dict = {}
+	arr=[]
+	for i in columns:
+		for j in dframe[i].unique():
+			arr.append(j)
+
+	for i, j in enumerate(arr):
+		dict[j] =i
+	return  dict

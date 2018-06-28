@@ -13,8 +13,7 @@ The project, especially the machine learning part was heavily based on [this mac
 ### Proj. structure
 Folder pcg\ includes imports.py that holds all the imports for main.py + pandas output scheme parameters
 
-Titanic
-
+Titanic/
 * main.py             
 * README.md
 * train.csv

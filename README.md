@@ -14,16 +14,10 @@ The project, especially the machine learning part was heavily based on [this mac
 Folder pcg\ includes imports.py that holds all the imports for main.py + pandas output scheme parameters
 
 Titanic
-
-+-- main.py
-+-- pcg/
-|   +-- file A
-|   +-- Flie B
-
-* Item 1
-* Item 2
-  * Item 2a
-  * Item 2b
+* main.py
+* pcg/
+  * file A
+  * Flie B
 
 
 ```

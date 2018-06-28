@@ -8,21 +8,23 @@ import re
 #Load df from file
 dframe = pd.read_csv("train.csv")
 
-#Split Cabin column into floor and rooms columns
+#Split Cabin column into floor and rooms columns. i.e "C130 C230" ---> C - 130 - 120
 newframe = dframe.Cabin.str.split(" ", expand=True)
 dframe.Cabin= dframe.Cabin.str.extract('(\w)')
 newframe = newframe.apply(lambda x: x.str.extract('(\d+)'))
-frame = pd.concat([dframe, newframe],axis=1)
+dframe = pd.concat([dframe, newframe],axis=1)
 
-#Turn NA values to -1 in order to be used in learning algorithms
-frame.fillna(-1, inplace = True)
 
 #Groupby Ticket and then give each person the count of the group
 dframe[dframe.Ticket.duplicated(keep=False)].sort_values("Ticket")
 grp = dframe[dframe.Ticket.duplicated(keep=False)].groupby("Ticket").size() #people with the same ticket
 
 
+#Turn NA values to -1 in order to be used in learning algorithms
+dframe.fillna(-1, inplace = True)
 
+
+"""
 #Maching learning#
 #----------------#
 
@@ -61,9 +63,10 @@ for name, model in models:
 for x,y in enumerate(dframe.columns):
 	print (x,y,dframe.iloc[x,x])
 
+"""
 
 
-
+"""
 #Homemade functions#
 #------------------#
 
@@ -92,4 +95,5 @@ def text2number(dframe):
 
 	for i, j in enumerate(arr):
 		dict[j] =i
-	return  dict
+	return  dict 
+	"""

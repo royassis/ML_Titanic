@@ -1,7 +1,7 @@
 
 # My cookbook
+##### 1 How to make bins and categories
 
-## How to make bins and categories
 
 ```
 dframe_sorted =dframe_nona.sort_values("Age", ascending=False)
@@ -14,8 +14,10 @@ navals = dframe.groupby(['Age', pd.cut(dframe.Age, age_cat.categories)])
 
 
 navals.size().unstack()
+```
 
-
+##### Pivoting
+```
 xmpl = male_frame[["Sex","age_grp","Survived"]]
 xmpl = xmpl.dropna()
 xmpl.pivot("Sex","age_grp","Survived")
@@ -26,5 +28,5 @@ dframe.groupby("Sex").get_group('female').head()
 
 
 
-## Links
+#### Links
 https://pandas.pydata.org/pandas-docs/stable/visualization.html vis

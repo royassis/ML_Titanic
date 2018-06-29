@@ -24,7 +24,7 @@ Titanic/
 * main.py             
 * README.md
 * train.csv
-* learningResults.csv
+* oldLearningResults.csv
 * pcg/
   * imports.py
   * funcs.py

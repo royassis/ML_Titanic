@@ -16,12 +16,11 @@ navals = dframe.groupby(['Age', pd.cut(dframe.Age, age_cat.categories)])
 navals.size().unstack()
 ```
 
-##### 2 Pivoting
+##### 2 Pivoting stacking unstacking
 ```
 xmpl = male_frame[["Sex","age_grp","Survived"]]
 xmpl = xmpl.dropna()
 xmpl.pivot("Sex","age_grp","Survived")
-
 
 dframe.groupby("Sex").get_group('female').head()
 ```
@@ -29,4 +28,12 @@ dframe.groupby("Sex").get_group('female').head()
 
 
 #### Links
-https://pandas.pydata.org/pandas-docs/stable/visualization.html vis
+Visualisation - https://pandas.pydata.org/pandas-docs/stable/visualization.html
+
+Machine learning tutorial - https://www.kaggle.com/ldfreeman3/a-data-science-framework-to-achieve-99-accuracy
+
+Bsaic Machine learning tutorial - https://machinelearningmastery.com/machine-learning-in-python-step-by-step/
+
+Group By: split-apply-combine - https://pandas.pydata.org/pandas-docs/stable/groupby.html
+
+Merge, join, and concatenate - https://pandas.pydata.org/pandas-docs/stable/merging.html#

@@ -47,7 +47,7 @@ d3 = d3[['PassengerId', 'Survived', 'Pclass', 'Name',"Title", 'Sex', 'Age', 'Sib
 for x in range(4):
     d3["Cabin_#"+str(x+1)]= pd.to_numeric(d3["Cabin_#"+str(x+1)])
 
-d3.to_csv("learningResults.csv", index = False)
+d3.to_csv("oldLearningResults.csv", index = False)
 
 
 """

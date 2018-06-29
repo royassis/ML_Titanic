@@ -16,7 +16,7 @@ navals = dframe.groupby(['Age', pd.cut(dframe.Age, age_cat.categories)])
 navals.size().unstack()
 ```
 
-##### Pivoting
+##### 2 Pivoting
 ```
 xmpl = male_frame[["Sex","age_grp","Survived"]]
 xmpl = xmpl.dropna()

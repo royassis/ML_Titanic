@@ -26,6 +26,25 @@ dframe.groupby("Sex").get_group('female').head()
 ```
 
 
+##### 3 Detect outliers
+Code taken from [this stackoverflow entry](https://stackoverflow.com/questions/35827863/remove-outliers-in-pandas-dataframe-using-percentiles/35828995)
+
+If one want to slice out outliers he can only do so by first, make a percentile dataframe as below.
+
+```
+low = .05
+high = .95
+quant_df = filt_df.quantile([low, high])
+```
+
+and then use apply on a the current dataframe to slice out relevent values
+
+(important mark- when applying a series one applies each value seperatly, in order to apply the whole series on need to define it as a dataframe as such :[[df.column]])
+```
+df = df.apply(lambda x: x[(x>quant_df.loc[low,x.name]) &
+                                    (x < quant_df.loc[high,x.name])])
+```
+
 
 #### Links
 Visualisation - https://pandas.pydata.org/pandas-docs/stable/visualization.html

@@ -39,7 +39,6 @@ dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
 #dframe.fillna(-1, inplace = True)
 
 
-
 """
 #Maching learning#
 #----------------#

@@ -10,12 +10,14 @@ The project, especially the machine learning part was heavily based on [this mac
 
 ### Proj. structure
 
+
 The project will include a:
 * Data cleaning and processing part
 * An optional data visualization and plotting part
 * A machine learning part
 
 ### Proj. file structure
+
 Folder pcg/ includes imports.py that holds all the imports for main.py + pandas output scheme parameters
 
 Titanic/

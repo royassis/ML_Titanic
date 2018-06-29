@@ -16,12 +16,28 @@ dframe = pd.concat([dframe, newframe],axis=1)
 
 
 #Groupby Ticket and then give each person the count of the group
-dframe[dframe.Ticket.duplicated(keep=False)].sort_values("Ticket")
-grp = dframe[dframe.Ticket.duplicated(keep=False)].groupby("Ticket").size() #people with the same ticket
+grp = dframe.groupby("Ticket").size()
+dframe['SameTicket']= dframe.Ticket.map(grp)
+
+#Give numbers for each group of same ticket
+dframe["TicketGrp"]= pd.Categorical(dframe.Ticket).codes
+
+#Make a column of Parch + SibSp = Family
+dframe['Family'] = dframe['Parch'] + dframe['SibSp']
+
+#Make a column is alone
+dframe['Alone'] = dframe['Family'].dropna().apply(lambda x: 1 if x == 0 else 0)
+
+#Make a Title column
+dframe["Title"]= dframe.Name.str.extract('^\w+,\s(\w+)')
+
+#Make a  FamilyName column
+dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
 
 
 #Turn NA values to -1 in order to be used in learning algorithms
-dframe.fillna(-1, inplace = True)
+#dframe.fillna(-1, inplace = True)
+
 
 
 """
@@ -97,3 +113,5 @@ def text2number(dframe):
 		dict[j] =i
 	return  dict 
 	"""
+
+

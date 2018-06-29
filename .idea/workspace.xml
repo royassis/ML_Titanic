@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="50ecbe03-48ea-4f9e-80c0-073a5003ce28" name="Default" comment="1">
+      <change beforePath="$PROJECT_DIR$/.idea/Titanic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Titanic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
+    </list>
     <list id="0f6d44af-ebb4-45dd-8160-2986c16ab0dc" name="change 2" comment="change 2&#10;&#10;(cherry picked from commit f5f034c)">
       <changelist_data name="roy" email="royassisg@gmail.com" date="1512579188000" />
-    </list>
-    <list default="true" id="50ecbe03-48ea-4f9e-80c0-073a5003ce28" name="Default" comment="1">
-      <change afterPath="$PROJECT_DIR$/.idea/Titanic.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/d3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pandas_links" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/skretch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proj.py" beforeDir="false" afterPath="$PROJECT_DIR$/proj.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,7 +17,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="test2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,6 +48,8 @@
       <find>index</find>
       <find>LogisticRegression</find>
       <find>pandas</find>
+      <find>StandardScaler()</find>
+      <find>sex</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -58,10 +65,15 @@
         <option value="$PROJECT_DIR$/imports.py" />
         <option value="$PROJECT_DIR$/skretch" />
         <option value="$PROJECT_DIR$/pandas_links" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/pcg/funcs.py" />
-        <option value="$PROJECT_DIR$/pcg/imports.py" />
         <option value="$PROJECT_DIR$/proj.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/pcg/pdOptions.py" />
+        <option value="$PROJECT_DIR$/pcg/imports.py" />
+        <option value="$PROJECT_DIR$/test1.py" />
+        <option value="$PROJECT_DIR$/pcg/imports2.py" />
+        <option value="$PROJECT_DIR$/test2.py" />
       </list>
     </option>
   </component>
@@ -70,7 +82,9 @@
     <option name="width" value="1924" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -97,7 +111,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -130,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.proj">
+  <component name="RunManager" selected="Python.test">
     <configuration name="proj" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Titanic" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,7 +157,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proj.py" />
+      <option name="SCRIPT_NAME" value="D:\PycharmProjects\Titanic\test1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,7 +175,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="D:\PycharmProjects\Titanic\test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -238,7 +252,42 @@
       <option name="project" value="LOCAL" />
       <updated>1513445417794</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1">
+      <created>1530018575494</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1530018575494</updated>
+    </task>
+    <task id="LOCAL-00009" summary="1">
+      <created>1530018598512</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1530018598512</updated>
+    </task>
+    <task id="LOCAL-00010" summary="1">
+      <created>1530020358153</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1530020358153</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1">
+      <created>1530028874426</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1530028874426</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Progress">
+      <created>1530119114773</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1530119114773</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -252,16 +301,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2650158" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2650158" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.1601686" side_tool="true" weight="0.31926408" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49788806" weight="0.3625541" />
-      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.8398314" visible="true" weight="0.31926408" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49788806" weight="0.3625541" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.8398314" visible="true" weight="0.23809524" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24973656" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32900432" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32900432" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -270,27 +320,27 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2650158" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2650158" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24973656" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49788806" weight="0.3625541" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.8398314" weight="0.31926408" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39935064" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32900432" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.1601686" side_tool="true" weight="0.31926408" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49788806" weight="0.3625541" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.8398314" visible="true" weight="0.31926408" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -337,49 +387,44 @@
     <MESSAGE value="change 3" />
     <MESSAGE value="blank" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="Progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/pcg/imports.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
     <entry file="file://$PROJECT_DIR$/pcg/funcs.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
     <entry file="file://$PROJECT_DIR$/pcg/funcs.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
+    <entry file="file://$PROJECT_DIR$/test2.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
     <entry file="file://$PROJECT_DIR$/pandas_links" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
     <entry file="file://$PROJECT_DIR$/pcg/funcs.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
     <entry file="file://$PROJECT_DIR$/pcg/funcs.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
     <entry file="file://$PROJECT_DIR$/pcg/funcs.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
     <entry file="file://$PROJECT_DIR$/pcg/funcs.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py" />
+    <entry file="file://$PROJECT_DIR$/test1.py" />
     <entry file="file://$PROJECT_DIR$/imports.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/pandas/core/frame.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -396,13 +441,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../pandasLesson/lessonPD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="31" column="7" lean-forward="true" selection-start-line="30" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../pandasLesson/lessonPD.py" />
     <entry file="file://$PROJECT_DIR$/../udemyStat/DataScience/KMeans.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -417,30 +456,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pcg/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/pcg/funcs.py" />
-    <entry file="file://$PROJECT_DIR$/pcg/imports.py" />
-    <entry file="file://$PROJECT_DIR$/proj.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.csv">
+    <entry file="file://$PROJECT_DIR$/pcg/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/pandas_links">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/d3.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/skretch">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state>
+          <caret column="64" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/garbage" />
+    <entry file="file://$PROJECT_DIR$/MakeCat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/learningResults.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcg/pdOptions.py" />
+    <entry file="file://$PROJECT_DIR$/pcg/imports.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/site-packages/IPython/core/interactiveshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="2909" selection-start-line="2909" selection-end-line="2909" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcg/imports2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/site-packages/pandas/core/indexes/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="1695" selection-start-line="1695" selection-end-line="1695" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/site-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="2115" selection-start-line="2115" selection-end-line="2115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/site-packages/pandas/core/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="478" selection-start-line="478" selection-end-line="478" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="3607" selection-start-line="3607" selection-end-line="3607" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="1067" selection-start-line="1067" selection-end-line="1067" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/re.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="287" selection-start-line="287" selection-end-line="287" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Anaconda3/Lib/site-packages/pandas/core/series.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="2981" selection-start-line="2981" selection-end-line="2981" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcg/funcs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

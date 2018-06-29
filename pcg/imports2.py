@@ -1,3 +1,7 @@
+#General imports for main#
+#------------------------#
+
+#Main libraries imports
 import sys
 print('Python: {}'.format(sys.version))
 # scipy
@@ -17,12 +21,18 @@ import sklearn
 print('sklearn: {}'.format(sklearn.__version__))
 
 import pandas as pd
+
+#Plotting and visualisation
 import matplotlib.pyplot as plt
 from  pandas.plotting import scatter_matrix
+
+#Machine learning data validation and such
 from sklearn import model_selection
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
+
+#Machine learning models
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier

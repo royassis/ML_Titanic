@@ -1,6 +1,9 @@
 import numpy as np
-from pandas import DataFrame
 import re
+
+
+#Functions to be used in pandas apply#
+#------------------------------------#
 
 def ranker (df):
     df["A"]  = np.arange(len(df)) + 1

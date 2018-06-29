@@ -1,6 +1,9 @@
 
+# My cookbook
 
-"""
+## How to make bins and categories
+
+```
 dframe_sorted =dframe_nona.sort_values("Age", ascending=False)
 age_cat = pd.cut(dframe_sorted["Age"].values.tolist(), 10)
 
@@ -19,5 +22,9 @@ xmpl.pivot("Sex","age_grp","Survived")
 
 
 dframe.groupby("Sex").get_group('female').head()
+```
 
-"""
+
+
+## Links
+https://pandas.pydata.org/pandas-docs/stable/visualization.html vis

@@ -16,8 +16,9 @@ dframe = pd.concat([dframe, newframe],axis=1)
 
 
 #Groupby Ticket and then give each person the count of the group
-grp = dframe.groupby("Ticket").size()
+grp = dframe.groupby("Ticket").size()  #could have also used dframe.Ticket.value_counts()
 dframe['SameTicket']= dframe.Ticket.map(grp)
+
 
 #Give numbers for each group of same ticket
 dframe["TicketGrp"]= pd.Categorical(dframe.Ticket).codes
@@ -29,7 +30,10 @@ dframe['Family'] = dframe['Parch'] + dframe['SibSp']
 dframe['Alone'] = dframe['Family'].dropna().apply(lambda x: 1 if x == 0 else 0)
 
 #Make a Title column
-dframe["Title"]= dframe.Name.str.extract('^\w+,\s(\w+)')
+dframe["Title"]= dframe.Name.str.extract('^.*?,\s(.*?)\.')
+#CLean Title
+validTitles = (dframe["Title"].value_counts()/dframe["Title"].shape[0])<0.1
+dframe["Title"] = dframe["Title"].apply(lambda x: "Misc" if validTitles.loc[x] == True else x )
 
 #Make a  FamilyName column
 dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
@@ -85,9 +89,15 @@ for x,y in enumerate(dframe.columns):
 #Homemade functions#
 #------------------#
 
+
+Could have just used: dframe.isnull().sum()/dframe.shape[0]
+
 def NullColumnPrec(dframe):
 	for i in dframe.columns:
-		print (i, dframe[dframe[i].isnull()].shape[0]/dframe.shape[0])
+		print (i, dframe[dframe[i].isnull()].shape[0]/dframe.shape[0]) 
+
+
+Could have just used: dframe.nunique()/dframe.shape[0]
 
 def UniqueColumnPrec(dframe):
 	arr = []

@@ -72,24 +72,23 @@ test_labels = keras.utils.to_categorical(Y_validation, 7)
 
 
 model = Sequential()
-model.add(Dense(100, activation='relu', input_shape=(156,)))
+model.add(Dense(7, activation='relu', input_shape=(156,)))
 model.add(Dense(7, activation='softmax'))
 
-train_images = X_train.astype('float32')
-test_images = train_labels.astype('float32')
+train_data = X_train.astype('float32')
+test_data = train_labels.astype('float32')
 
-print (X_train.shape, train_labels.shape)
+print (train_data.shape, test_data.shape)
 
 
 model.summary()
-
 
 model.compile(loss='categorical_crossentropy',
               optimizer=RMSprop(),
               metrics=['accuracy'])
 
 
-history = model.fit(train_images, test_images,
+history = model.fit(train_data, test_data,
                     batch_size=10,
                     epochs=10,
                     verbose=2,

@@ -26,6 +26,10 @@ print("IPython version: {}". format(IPython.__version__))
 
 
 import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
+from keras.optimizers import RMSprop
+
 from sklearn import svm, tree, linear_model, neighbors, naive_bayes, ensemble, discriminant_analysis, gaussian_process
 
 #Common Model Helpers

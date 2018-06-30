@@ -60,17 +60,40 @@ for i in labels:
 
 
 array = data1.values
-X = array[:,1:]
-Y = array[:,1]
+X = np.concatenate ((array[:,0:9], array[:,9:-1]), axis =1)
+Y = array[:,9]
 validation_size = 0.20
 seed = 7
 X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
 
 
-train_labels = keras.utils.to_categorical(Y_train, 10)
-test_labels = keras.utils.to_categorical(Y_validation, 10)
+train_labels = keras.utils.to_categorical(Y_train, 7)
+test_labels = keras.utils.to_categorical(Y_validation, 7)
 
 
+model = Sequential()
+model.add(Dense(100, activation='relu', input_shape=(156,)))
+model.add(Dense(7, activation='softmax'))
+
+train_images = X_train.astype('float32')
+test_images = train_labels.astype('float32')
+
+print (X_train.shape, train_labels.shape)
+
+
+model.summary()
+
+
+model.compile(loss='categorical_crossentropy',
+              optimizer=RMSprop(),
+              metrics=['accuracy'])
+
+
+history = model.fit(train_images, test_images,
+                    batch_size=10,
+                    epochs=10,
+                    verbose=2,
+                    )
 
 #Turn NA values to -1 in order to be used in learning algorithms
 #dframe.fillna(-1, inplace = True)

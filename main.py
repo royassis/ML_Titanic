@@ -8,6 +8,13 @@ import re
 #Load df from file
 dframe = pd.read_csv("train.csv")
 
+#Deak with NA values
+
+dframe['Age'].fillna(dframe['Age'].median(), inplace=True)
+dframe['Embarked'].fillna(dframe['Embarked'].mode()[0], inplace = True)
+dframe['Fare'].fillna(dframe['Fare'].median(), inplace = True)
+
+
 #Split Cabin column into floor and rooms columns. i.e "C130 C230" ---> C - 130 - 120
 newframe = dframe.Cabin.str.split(" ", expand=True)
 dframe.Cabin= dframe.Cabin.str.extract('(\w)')
@@ -19,8 +26,7 @@ dframe = pd.concat([dframe, newframe],axis=1)
 grp = dframe.groupby("Ticket").size()  #could have also used dframe.Ticket.value_counts()
 dframe['SameTicket']= dframe.Ticket.map(grp)
 
-
-#Give numbers for each group of same ticket
+#Give group numbers for each group of same ticket
 dframe["TicketGrp"]= pd.Categorical(dframe.Ticket).codes
 
 #Make a column of Parch + SibSp = Family
@@ -38,6 +44,15 @@ dframe["Title"] = dframe["Title"].apply(lambda x: "Misc" if validTitles.loc[x] =
 #Make a  FamilyName column
 dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
 
+#Binning relevent columns
+dframe['AgeBin'] = pd.cut(dframe['Age'].astype(int), 5)
+dframe['FareBin'] = pd.qcut(dframe['Fare'], 4)
+
+#Encoding
+label = LabelEncoder()
+columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin']
+for i in columnsToEnc:
+    dframe[i.__str__()+"_code"]=label.fit_transform(dframe[i])
 
 #Turn NA values to -1 in order to be used in learning algorithms
 #dframe.fillna(-1, inplace = True)

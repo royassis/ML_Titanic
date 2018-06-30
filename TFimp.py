@@ -76,9 +76,13 @@ model.add(Dense(7, activation='relu', input_shape=(156,)))
 model.add(Dense(7, activation='softmax'))
 
 train_data = X_train.astype('float32')
+train_data /= np.max(np.abs(train_data),axis=0)
+print (train_data)
+
 test_data = train_labels.astype('float32')
 
 print (train_data.shape, test_data.shape)
+
 
 
 model.summary()

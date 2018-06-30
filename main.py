@@ -26,8 +26,8 @@ dframe = pd.concat([dframe, newframe],axis=1)
 grp = dframe.groupby("Ticket").size()  #could have also used dframe.Ticket.value_counts()
 dframe['SameTicket']= dframe.Ticket.map(grp)
 
-#Give group numbers for each group of same ticket
-dframe["TicketGrp"]= pd.Categorical(dframe.Ticket).codes
+#Give numbers for each group of same ticket
+dframe["TicketGrp"]= pd.Categorical(dframe.Ticket, ordered=True).codes
 
 #Make a column of Parch + SibSp = Family
 dframe['Family'] = dframe['Parch'] + dframe['SibSp']

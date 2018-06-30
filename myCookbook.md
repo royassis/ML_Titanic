@@ -35,6 +35,12 @@ If one want to slice out outliers he can only do so by first, make a percentile 
 low = .05
 high = .95
 quant_df = filt_df.quantile([low, high])
+
+print(quant_df)
+
+       Col0   Col1  Col2   Col3   Col4
+0.05   2.00   3.00   6.9   3.95   4.00
+0.95  95.05  89.05  93.0  94.00  97.05
 ```
 
 and then use apply on a the current dataframe to slice out relevent values

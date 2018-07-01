@@ -72,16 +72,10 @@ test_labels = keras.utils.to_categorical(Y_validation, 7)
 
 
 model = Sequential()
-model.add(Dense(7, activation='relu', input_shape=(156,)))
+model.add(Dense(20, activation='relu', input_shape=(17,)))
+model.add(Dense(20, activation='relu', input_shape=(17,)))
+model.add(Dense(20, activation='relu', input_shape=(17,)))
 model.add(Dense(7, activation='softmax'))
-
-train_data = X_train.astype('float32')
-train_data /= np.max(np.abs(train_data),axis=0)
-print (train_data)
-
-test_data = train_labels.astype('float32')
-
-print (train_data.shape, test_data.shape)
 
 
 
@@ -92,11 +86,22 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 
-history = model.fit(train_data, test_data,
-                    batch_size=10,
-                    epochs=10,
+history = model.fit(X_train, train_labels,
+                    batch_size=156,
+                    epochs=10000,
                     verbose=2,
+                    validation_data=(X_validation, test_labels)
                     )
+
+
+score = model.evaluate(X_validation, test_labels, verbose=0)
+print('Test loss:', score[0])
+print('Test accuracy:', score[1])
+
+
+label.inverse_transform()
+
+
 
 #Turn NA values to -1 in order to be used in learning algorithms
 #dframe.fillna(-1, inplace = True)

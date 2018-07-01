@@ -9,14 +9,15 @@ import re
 
 #Load df from file
 dframe = pd.read_csv("train.csv")
-dframe.drop("PassengerId", inplace =True, axis = 1)
-#Deak with NA values
+
+#Deal with NA values
 dframe.isnull().sum()
 
 dframe['Age'].fillna(dframe['Age'].median(), inplace=True)
 dframe['Embarked'].fillna(dframe['Embarked'].mode()[0], inplace = True)
 dframe['Fare'].fillna(dframe['Fare'].median(), inplace = True)
 
+dataCopy = dframe.copy(deep=True)
 
 #Split Cabin column into floor and rooms columns. i.e "C130 C230" ---> C - 130 - 120
 newframe = dframe.Cabin.str.split(" ", expand=True)
@@ -50,21 +51,18 @@ dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
 
 
 #Encoding
-
-data1 = dframe.copy(deep=True)
-data1 = data1[data1["cabin#1"].notnull()]
-data1.dropna(inplace =True, thresh  =175, axis =1 )
-labels = data1.select_dtypes(include=['object']).columns.get_values()
+dataCopy.drop("Cabin", inplace =True, axis = 1)
+labels = dataCopy.select_dtypes(include=['object']).columns.get_values()
 
 #Create a dictionary containing encoders
 d = defaultdict(LabelEncoder)
-fit = data1.apply(lambda x: d[x.name].fit_transform(x))
+dataEncoded = dataCopy[labels].apply(lambda x: d[x.name].fit_transform(x))
 
 
-array = data1.values
-X = np.concatenate ((array[:,0:9], array[:,9:-1]), axis =1)
-Y = array[:,9]
-validation_size = 0.20
+array = dataCopy.values
+X = np.concatenate ((array[:,1:10], array[:,11:]), axis =1)
+Y = array[:,10]
+validation_size = 0.10
 seed = 7
 X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
 
@@ -75,8 +73,8 @@ test_labels = keras.utils.to_categorical(Y_validation, 7)
 
 model = Sequential()
 model.add(Dense(20, activation='relu', input_shape=(17,)))
-model.add(Dense(20, activation='relu', input_shape=(17,)))
-model.add(Dense(20, activation='relu', input_shape=(17,)))
+model.add(Dense(20, activation='relu'))
+model.add(Dense(20, activation='relu'))
 model.add(Dense(7, activation='softmax'))
 
 
@@ -90,7 +88,7 @@ model.compile(loss='categorical_crossentropy',
 
 history = model.fit(X_train, train_labels,
                     batch_size=156,
-                    epochs=10000,
+                    epochs=1000,
                     verbose=2,
                     validation_data=(X_validation, test_labels)
                     )
@@ -103,9 +101,11 @@ print('Test accuracy:', score[1])
 
 
 
-label.inverse_transform()
-
 
 
 #Turn NA values to -1 in order to be used in learning algorithms
 #dframe.fillna(-1, inplace = True)
+
+
+# Encode whole dframe without NA values but keep dframe whole
+# Pass TF only dframe without NA values

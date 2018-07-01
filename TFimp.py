@@ -1,4 +1,6 @@
 from pcg.imports2 import *
+from collections import defaultdict
+from pcg.funcs import votePrec
 import re
 
 
@@ -48,15 +50,15 @@ dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
 
 
 #Encoding
-label = LabelEncoder()
 
 data1 = dframe.copy(deep=True)
 data1 = data1[data1["cabin#1"].notnull()]
 data1.dropna(inplace =True, thresh  =175, axis =1 )
 labels = data1.select_dtypes(include=['object']).columns.get_values()
 
-for i in labels:
-    data1[str(i)] = label.fit_transform(data1[i])
+#Create a dictionary containing encoders
+d = defaultdict(LabelEncoder)
+fit = data1.apply(lambda x: d[x.name].fit_transform(x))
 
 
 array = data1.values
@@ -97,6 +99,8 @@ history = model.fit(X_train, train_labels,
 score = model.evaluate(X_validation, test_labels, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
+
+
 
 
 label.inverse_transform()

@@ -75,6 +75,32 @@ for chunk in pd.read_csv(filename, chunksize=chunksize):
     process(chunk)
 ```
 
+##### 4 Encoding
+
+You can easily do this though,
+```
+
+df.apply(LabelEncoder().fit_transform)
+```
+EDIT:
+
+Since this answer is over a year ago, and generated many upvotes (including a bounty), I should probably extend this further.
+
+For inverse_transform and transform, you have to do a little bit of hack.
+```
+from collections import defaultdict
+d = defaultdict(LabelEncoder)
+With this, you now retain all columns LabelEncoder as dictionary.
+
+# Encoding the variable
+fit = df.apply(lambda x: d[x.name].fit_transform(x))
+
+# Inverse the encoded
+fit.apply(lambda x: d[x.name].inverse_transform(x))
+
+# Using the dictionary to label future data
+df.apply(lambda x: d[x.name].transform(x))
+```
 
 #### Links
 Visualisation - https://pandas.pydata.org/pandas-docs/stable/visualization.html

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list id="e69cceb0-acd0-44ac-82f9-134cf01fe3d5" name="New changelist" comment="" />
     <list id="0f6d44af-ebb4-45dd-8160-2986c16ab0dc" name="change 2" comment="change 2&#10;&#10;(cherry picked from commit f5f034c)">
       <changelist_data name="roy" email="royassisg@gmail.com" date="1512579188000" />
     </list>
-    <list id="e69cceb0-acd0-44ac-82f9-134cf01fe3d5" name="New changelist" comment="" />
     <list default="true" id="50ecbe03-48ea-4f9e-80c0-073a5003ce28" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TFimp.py" beforeDir="false" afterPath="$PROJECT_DIR$/TFimp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myCookbook.md" beforeDir="false" afterPath="$PROJECT_DIR$/myCookbook.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcg/funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcg/funcs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TFimp.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TFimp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TFimp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="52" column="5" selection-start-line="52" selection-end-line="52" selection-end-column="5" />
+            <state relative-caret-position="187">
+              <caret line="59" column="15" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="15" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -32,14 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="funcs.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pcg/funcs.py">
+      <file leaf-file-name="imports2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pcg/imports2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#1#10#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="186">
+              <caret line="35" column="61" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -75,6 +70,7 @@
       <find>StandardScaler()</find>
       <find>sex</find>
       <find>null</find>
+      <find>label</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,8 +105,8 @@
         <option value="$PROJECT_DIR$/pcg/imports2.py" />
         <option value="$PROJECT_DIR$/Keras.ipynb" />
         <option value="$PROJECT_DIR$/pcg/test.ipynb" />
-        <option value="$PROJECT_DIR$/TFimp.py" />
         <option value="$PROJECT_DIR$/pcg/funcs.py" />
+        <option value="$PROJECT_DIR$/TFimp.py" />
       </list>
     </option>
   </component>
@@ -507,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530391431399</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Just checking">
+      <created>1530453190082</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1530453190082</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -521,17 +524,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15015806" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.1601686" side_tool="true" weight="0.31926408" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49788806" weight="0.3625541" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.8398314" weight="0.3073593" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.8398314" visible="true" weight="0.3073593" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24973656" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32900432" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39935064" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -592,13 +596,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pcg/funcs.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -797,34 +794,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pcg/test.ipynb" />
-    <entry file="file://$PROJECT_DIR$/pcg/imports2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Keras.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TFimp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="52" column="5" selection-start-line="52" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -837,10 +810,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pcg/funcs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="300">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Keras.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcg/imports2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="35" column="61" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TFimp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="59" column="15" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

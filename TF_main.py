@@ -1,12 +1,9 @@
 from pcg.imports2 import *
 from collections import defaultdict
-from pcg.funcs import votePrec
-import re
 
 
 #Data cleaning and preprocessing#
 #-------------------------------#
-
 #Load df from file
 dframe = pd.read_csv("train.csv")
 
@@ -16,23 +13,7 @@ dframe.isnull().sum()
 dframe['Age'].fillna(dframe['Age'].median(), inplace=True)
 dframe['Embarked'].fillna(dframe['Embarked'].mode()[0], inplace = True)
 dframe['Fare'].fillna(dframe['Fare'].median(), inplace = True)
-
-dataCopy = dframe.copy(deep=True)
-
-#Split Cabin column into floor and rooms columns. i.e "C130 C230" ---> C - 130 - 120
-newframe = dframe.Cabin.str.split(" ", expand=True)
-dframe.Cabin= dframe.Cabin.str.extract('(\w)')
-newframe = newframe.apply(lambda x: x.str.extract('(\d+)'))
-dframe = pd.concat([dframe, newframe],axis=1)
-
-dframe.rename(columns={0: 'cabin#1',1: 'cabin#2',2: 'cabin#3',3: 'cabin#4'}, inplace = True)
-
-#Groupby Ticket and then give each person the count of the group
-grp = dframe.groupby("Ticket").size()  #could have also used dframe.Ticket.value_counts()
-dframe['SameTicket']= dframe.Ticket.map(grp)
-
-#Give group numbers for each group of same ticket
-dframe["TicketGrp"]= pd.Categorical(dframe.Ticket).codes
+dframe.drop("Cabin", inplace =True, axis = 1)
 
 #Make a column of Parch + SibSp = Family
 dframe['FamilySize'] = dframe['Parch'] + dframe['SibSp']+1
@@ -46,20 +27,54 @@ dframe["Title"]= dframe.Name.str.extract('^.*?,\s(.*?)\.')
 validTitles = (dframe["Title"].value_counts()/dframe["Title"].shape[0])<0.1
 dframe["Title"] = dframe["Title"].apply(lambda x: "Misc" if validTitles.loc[x] == True else x )
 
-#Make a  FamilyName column
-dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
+#Binning relevent columns
+dframe['AgeBin'] = pd.cut(dframe['Age'].astype(int), 5)
+dframe['FareBin'] = pd.qcut(dframe['Fare'], 4)
 
+############Encoding#############
+#-------------------------------#
 
-#Encoding
-dataCopy.drop("Cabin", inplace =True, axis = 1)
-labels = dataCopy.select_dtypes(include=['object']).columns.get_values()
+#Get relevent columns to encode
+columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin', "Embarked"]
 
 #Create a dictionary containing encoders
 d = defaultdict(LabelEncoder)
-dataEncoded = dataCopy[labels].apply(lambda x: d[x.name].fit_transform(x))
+dframe[columnsToEnc].apply(lambda x: d[x.name].fit(x))
+for i in columnsToEnc:
+    dframe[i.__str__()+"_Code"]=columnsToEnc.transform(dframe[i])
 
 
-array = dataCopy.values
+
+Target  = ['Survived']
+dframe_x = ['Sex','Pclass', 'Embarked', 'Title','SibSp', 'Parch', 'Age', 'Fare', 'FamilySize', 'IsAlone']
+dframe_x_calc = ['Sex_Code','Pclass', 'Embarked_Code', 'Title_Code','SibSp', 'Parch', 'Age', 'Fare']
+dframe_xy = Target + dframe_x
+
+
+#Split Training and Testing Data#
+#-------------------------------#
+
+
+train1_x, test1_x, train1_y, test1_y = model_selection.train_test_split(dframe[dframe_x_calc] ,dframe[Target], random_state = 0)
+
+train1_x_bin, test1_x_bin, train1_y_bin, test1_y_bin = model_selection.train_test_split(dframe[dframe_x_bin], dframe[Target] , random_state = 0)
+
+train1_x_dummy, test1_x_dummy, train1_y_dummy, test1_y_dummy = model_selection.train_test_split(dframe_dummy[dframe_x_dummy], dframe[Target], random_state = 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+array = dframe.values
 X = np.concatenate ((array[:,1:10], array[:,11:]), axis =1)
 Y = array[:,10]
 validation_size = 0.10
@@ -109,3 +124,30 @@ print('Test accuracy:', score[1])
 
 # Encode whole dframe without NA values but keep dframe whole
 # Pass TF only dframe without NA values
+
+
+
+
+
+
+"""
+#Split Cabin column into floor and rooms columns. i.e "C130 C230" ---> C - 130 - 120
+newframe = dframe.Cabin.str.split(" ", expand=True)
+dframe.Cabin= dframe.Cabin.str.extract('(\w)')
+newframe = newframe.apply(lambda x: x.str.extract('(\d+)'))
+dframe = pd.concat([dframe, newframe],axis=1)
+
+dframe.rename(columns={0: 'cabin#1',1: 'cabin#2',2: 'cabin#3',3: 'cabin#4'}, inplace = True)
+
+#Groupby Ticket and then give each person the count of the group
+grp = dframe.groupby("Ticket").size()  #could have also used dframe.Ticket.value_counts()
+dframe['SameTicket']= dframe.Ticket.map(grp)
+
+#Make a  FamilyName column
+dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
+
+#Give group numbers for each group of same ticket
+dframe["TicketGrp"]= pd.Categorical(dframe.Ticket).codes
+
+dframe[labels] = dframe[labels].apply(lambda x: d[x.name].fit_transform(x))
+"""

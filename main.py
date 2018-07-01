@@ -9,35 +9,15 @@ import re
 dframe = pd.read_csv("train.csv")
 
 #Deal with NA values
+dframe.isnull().sum()
+
 dframe['Age'].fillna(dframe['Age'].median(), inplace=True)
 dframe['Embarked'].fillna(dframe['Embarked'].mode()[0], inplace = True)
 dframe['Fare'].fillna(dframe['Fare'].median(), inplace = True)
-
-drop_column = ['PassengerId','Cabin', 'Ticket']
-dframe.drop(drop_column, axis=1, inplace = True)
-
-
-"""
-#Split Cabin column into floor and rooms columns. i.e "C130 C230" ---> C - 130 - 120
-newframe = dframe.Cabin.str.split(" ", expand=True)
-dframe.Cabin= dframe.Cabin.str.extract('(\w)')
-newframe = newframe.apply(lambda x: x.str.extract('(\d+)'))
-dframe = pd.concat([dframe, newframe],axis=1)
-"""
-
-"""
-#Groupby Ticket and then give each person the count of the group
-grp = dframe.groupby("Ticket").size()  #could have also used dframe.Ticket.value_counts()
-dframe['SameTicket']= dframe.Ticket.map(grp)
-"""
-
-"""
-#Give numbers for each group of same ticket
-dframe["TicketGrp"]= pd.Categorical(dframe.Ticket, ordered=True).codes
-"""
+dframe.drop("Cabin", inplace =True, axis = 1)
 
 #Make a column of Parch + SibSp = Family
-dframe['FamilySize'] = dframe['Parch'] + dframe['SibSp'] +1
+dframe['FamilySize'] = dframe['Parch'] + dframe['SibSp']+1
 
 #Make a column is alone
 dframe['IsAlone'] = dframe['FamilySize'].dropna().apply(lambda x: 1 if x == 1 else 0)
@@ -48,14 +28,10 @@ dframe["Title"]= dframe.Name.str.extract('^.*?,\s(.*?)\.')
 validTitles = (dframe["Title"].value_counts()/dframe["Title"].shape[0])<0.1
 dframe["Title"] = dframe["Title"].apply(lambda x: "Misc" if validTitles.loc[x] == True else x )
 
-"""
-#Make a FamilyName column
-dframe["FamilyName"]= dframe.Name.str.extract('^(\w+)')
-"""
-
 #Binning relevent columns
 dframe['AgeBin'] = pd.cut(dframe['Age'].astype(int), 5)
 dframe['FareBin'] = pd.qcut(dframe['Fare'], 4)
+
 
 #Encoding
 label = LabelEncoder()

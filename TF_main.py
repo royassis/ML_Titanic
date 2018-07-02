@@ -22,7 +22,7 @@ data1['FamilySize'] = data1['Parch'] + data1['SibSp']+1
 data1['IsAlone'] = data1['FamilySize'].dropna().apply(lambda x: 1 if x == 1 else 0)
 
 #Make a Title column
-data1["Title"]= data1.Name.str.extract('^.*?,\s(.*?)\.')
+data1["Title"]= data1.Name.str.extract('^.*?,\s(.*?)\.', expand = False)
 #CLean Title
 validTitles = (data1["Title"].value_counts()/data1["Title"].shape[0])<0.1
 data1["Title"] = data1["Title"].apply(lambda x: "Misc" if validTitles.loc[x] == True else x )
@@ -31,19 +31,65 @@ data1["Title"] = data1["Title"].apply(lambda x: "Misc" if validTitles.loc[x] == 
 data1['AgeBin'] = pd.cut(data1['Age'].astype(int), 5)
 data1['FareBin'] = pd.qcut(data1['Fare'], 4)
 
+
+
 ############Encoding#############
 #-------------------------------#
+
+#Ways to code:
+#1.one hot(if not inherent order) 2.ordinal
+
 
 #Get relevent columns to encode
 columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin', "Embarked"]
 
 #Encode
 label = LabelEncoder()
-data1['Sex_Code'] = label.fit_transform(data1['Sex'])
-data1['Embarked_Code'] = label.fit_transform(data1['Embarked'])
-data1['Title_Code'] = label.fit_transform(data1['Title'])
-data1['AgeBin_Code'] = label.fit_transform(data1['AgeBin'])
-data1['FareBin_Code'] = label.fit_transform(data1['FareBin'])
+
+#Version one - encoder is not saved
+def encodeV1():
+    data1['Sex_Code'] = label.fit_transform(data1['Sex'])
+    data1['Embarked_Code'] = label.fit_transform(data1['Embarked'])
+    data1['Title_Code'] = label.fit_transform(data1['Title'])
+    data1['AgeBin_Code'] = label.fit_transform(data1['AgeBin'])
+    data1['FareBin_Code'] = label.fit_transform(data1['FareBin'])
+
+
+#Version two - use defaultdict but have to change column names manually later on
+def encodeV2():
+    d = defaultdict(LabelEncoder)
+    fit = data1.apply(lambda x: d[x.name].fit_transform(x))
+
+
+#Version three - use defaultdict and create column name dynamiclly
+def encodeV3():
+    d = defaultdict(LabelEncoder)
+    for i in columnsToEnc:
+        data1[i.__str__()+"code"] = data1[[i]].apply(lambda x: d[x.name].fit_transform(x))
+
+#Version four - drop na values or turn them to -1 and then get a list of all values and encode them ---- problematic
+#Version five - use a dictionary ---- can"t decode values
+
+#Version five - don't use binned data, leave continues data as it is and break down catagories with one-hot
+#a problem with get dummies is when a random input appers will need to convert to one hot
+
+def encodeV5():
+    pd.get_dummies(data1[columnsToEnc])
+
+#use version three
+encodeV3()
+
+#Must save encoder(s) at end of process, using "save_obj" in func file:
+
+save = True
+if (save):
+    save_obj(d, "encoders")
+
+
+
+
+############Fragmentdata#############
+#-----------------------------------#
 
 #Y column
 Target = ['Survived']

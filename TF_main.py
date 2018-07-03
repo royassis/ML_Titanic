@@ -1,4 +1,5 @@
 from pcg.imports2 import *
+from pcg.funcs import *
 from collections import defaultdict
 
 
@@ -59,13 +60,17 @@ def encodeV1():
 def encodeV2():
     d = defaultdict(LabelEncoder)
     fit = data1.apply(lambda x: d[x.name].fit_transform(x))
-
+    return d
 
 #Version three - use defaultdict and create column name dynamiclly
 def encodeV3():
     d = defaultdict(LabelEncoder)
     for i in columnsToEnc:
-        data1[i.__str__()+"code"] = data1[[i]].apply(lambda x: d[x.name].fit_transform(x))
+        data1[i.__str__() + "code"] = d[i].fit_transform(data1[i])
+    return d
+        
+        #data1[i.__str__()+"code"] = data1[i].fit_transform(x))
+
 
 #Version four - drop na values or turn them to -1 and then get a list of all values and encode them ---- problematic
 #Version five - use a dictionary ---- can"t decode values
@@ -77,13 +82,26 @@ def encodeV5():
     pd.get_dummies(data1[columnsToEnc])
 
 #use version three
-encodeV3()
+d = encodeV3()
+
 
 #Must save encoder(s) at end of process, using "save_obj" in func file:
-
-save = True
+save = False
 if (save):
     save_obj(d, "encoders")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

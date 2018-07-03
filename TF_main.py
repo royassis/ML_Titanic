@@ -37,15 +37,33 @@ data1['FareBin'] = pd.qcut(data1['Fare'], 4)
 ############Encoding#############
 #-------------------------------#
 
+"""
+What to do with columns 
+
+ID             dont use
+Name           dont use
+Pclass         Allready encodesd
+Title          onehot
+Sex            onehot
+Age            leave as is - continuous  
+SibSp          leave as is
+Parch          leave as is
+Ticket         dont use
+Fare           leave as is
+Cabin          leave
+Embarked       onehot
+"""
+
 #Ways to code:
 #1.one hot(if not inherent order) 2.ordinal
-
 
 #Get relevent columns to encode
 columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin', "Embarked"]
 
 #Encode
 label = LabelEncoder()
+
+#label.fit_transform([str(x) for x in data1.AgeBin.tolist()])
 
 #Version one - encoder is not saved
 def encodeV1():
@@ -54,7 +72,6 @@ def encodeV1():
     data1['Title_Code'] = label.fit_transform(data1['Title'])
     data1['AgeBin_Code'] = label.fit_transform(data1['AgeBin'])
     data1['FareBin_Code'] = label.fit_transform(data1['FareBin'])
-
 
 #Version two - use defaultdict but have to change column names manually later on
 def encodeV2():
@@ -68,41 +85,31 @@ def encodeV3():
     for i in columnsToEnc:
         data1[i.__str__() + "code"] = d[i].fit_transform(data1[i])
     return d
-        
-        #data1[i.__str__()+"code"] = data1[i].fit_transform(x))
-
 
 #Version four - drop na values or turn them to -1 and then get a list of all values and encode them ---- problematic
 #Version five - use a dictionary ---- can"t decode values
 
-#Version five - don't use binned data, leave continues data as it is and break down catagories with one-hot
-#a problem with get dummies is when a random input appers will need to convert to one hot
-
+#Version five - don't use binned data, leave continues data as it is and break down catagories with one-hot #a problem with get dummies is when a random input appers will need to convert to one hot
 def encodeV5():
     pd.get_dummies(data1[columnsToEnc])
 
 #use version three
-d = encodeV3()
+version = 3
 
+def encoders(argument): #Dictionary mapping for functions
+    switcher = {
+        1: encodeV1,
+        2: encodeV2,
+        3: encodeV3,
+        #4: encodeV4,
+        #5: encodeV5
+    }
+d = encoders(version)
 
 #Must save encoder(s) at end of process, using "save_obj" in func file:
 save = False
 if (save):
     save_obj(d, "encoders")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

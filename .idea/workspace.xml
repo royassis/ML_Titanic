@@ -4,11 +4,12 @@
     <list default="true" id="50ecbe03-48ea-4f9e-80c0-073a5003ce28" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TF_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/TF_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.ipynb" afterDir="false" />
     </list>
+    <list id="e69cceb0-acd0-44ac-82f9-134cf01fe3d5" name="New changelist" comment="" />
     <list id="0f6d44af-ebb4-45dd-8160-2986c16ab0dc" name="change 2" comment="change 2&#10;&#10;(cherry picked from commit f5f034c)">
       <changelist_data name="roy" email="royassisg@gmail.com" date="1512579188000" />
     </list>
-    <list id="e69cceb0-acd0-44ac-82f9-134cf01fe3d5" name="New changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,15 +18,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="TF_main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TF_main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="69" column="46" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+            <state relative-caret-position="1714">
+              <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kernel.ipynb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kernel.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="3" />
             </state>
           </provider>
         </entry>
@@ -55,6 +65,8 @@
       <find>label</find>
       <find>dframe</find>
       <find>tensor</find>
+      <find>float</find>
+      <find>continuous variables</find>
     </findStrings>
     <replaceStrings>
       <replace>data1</replace>
@@ -93,8 +105,8 @@
         <option value="$PROJECT_DIR$/TFimp.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/pcg/imports2.py" />
-        <option value="$PROJECT_DIR$/kernel.ipynb" />
         <option value="$PROJECT_DIR$/pcg/funcs.py" />
+        <option value="$PROJECT_DIR$/kernel.ipynb" />
         <option value="$PROJECT_DIR$/TF_main.py" />
       </list>
     </option>
@@ -128,7 +140,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -161,7 +173,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.TFimp">
+  <component name="RunManager" selected="Python.code">
     <configuration name="Titanic" type="JupiterNotebook" factoryName="Jupyter Notebook">
       <module name="Titanic" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -550,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530563159297</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="encoders v3">
+      <created>1530627026222</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1530627026222</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -569,20 +588,20 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13540569" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.1601686" side_tool="true" weight="0.31926408" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49788806" weight="0.3625541" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.8398314" weight="0.24350649" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.8398314" visible="true" weight="0.32792208" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24973656" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32900432" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="3" side_tool="true" visible="true" weight="0.18496802" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
     </layout>
@@ -637,7 +656,8 @@
     <MESSAGE value="Add toturial to foldar" />
     <MESSAGE value="add titanic test file" />
     <MESSAGE value="some change ?" />
-    <option name="LAST_COMMIT_MESSAGE" value="some change ?" />
+    <MESSAGE value="encoders v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="encoders v3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -830,20 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pcg/imports2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kernel.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myCookbook.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -868,13 +874,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/encoders.pkl">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/encoders.pkl" />
+    <entry file="file://$PROJECT_DIR$/pcg/imports2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="3" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TF_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="69" column="46" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+        <state relative-caret-position="1714">
+          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

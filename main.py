@@ -1,5 +1,7 @@
 from pcg.imports_n_settings import *
 from pcg.functions import *
+from pcg.NNmodel import *
+from keras.optimizers import SGD, RMSprop
 
 #Data cleaning and preprocessing#
 #-------------------------------#
@@ -53,18 +55,23 @@ y_test = keras.utils.to_categorical(y_test)
 X= dummy1.values
 Y= keras.utils.to_categorical(data1[Target])
 
+
 #Cross validation
-def create_model():
+def create_model(optimizer='adam',lr=0.0001, loss= 'binary_crossentropy',
+                 layer_a=50, layer_b=50,layer_c=50,
+                 activation_a = 'relu' ,activation_b ='relu',activation_c ='relu'):
+
     # create model
     model = Sequential()
-    model.add(Dense(50, input_dim=dummy1.shape[1], activation='relu'))
-    model.add(Dense(50, activation='relu'))
-    model.add(Dense(50, activation='relu'))
+    model.add(Dense(layer_a, input_dim=dummy1.shape[1], activation=activation_a))
+    model.add(Dense(layer_b, activation=activation_b))
+    model.add(Dense(layer_c, activation=activation_c))
     model.add(Dense(2, activation='softmax'))
     # Compile model
-    optimzer = keras.optimizers.Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
-    model.compile(loss='binary_crossentropy', optimizer=optimzer, metrics=['accuracy'])
+    #optimzer = keras.optimizers.Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    model.compile(loss=loss, optimizer=optimizer, metrics=['accuracy'])
     return model
+
 
 model_w_Wrapper = KerasClassifier(build_fn=create_model, epochs=1000, batch_size = dummy1.shape[0],verbose=0)
 
@@ -83,6 +90,44 @@ for model in models:
 print(cross_val_score_results)
 
 
+
+# Hyperparameters search
+
+# define the grid search parameters
+model_w_Wrapper = KerasClassifier(build_fn=create_model2, epochs=1, batch_size = 1,verbose=0)
+
+#optimizer = ['SGD', 'RMSprop', 'Adagrad', 'Adadelta', 'Adam', 'Adamax', 'Nadam']
+optimizer = [SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam]
+loss = ["mean_squared_error","binary_crossentropy"]
+
+layer_a= layer_b = layer_c = np.arange(10,40, step=10)
+activation_a = activation_b = activation_c = ["relu", "sigmoid"]
+lr = np.linspace(0.000001,0.0001,4)
+momentum = np.linspace(0.01 ,0.0001,4)
+
+#param_grid = dict(optimizer=optimizer, loss= loss, layer_a =layer_a, layer_b =layer_b, layer_c=layer_c,
+#                  activation_a=activation_a, activation_b=activation_b, activation_c=activation_c,
+#                  lr=lr,momentum=momentum)
+
+param_grid = dict(optimizer=optimizer, loss= loss)
+
+grid = GridSearchCV(estimator=model_w_Wrapper, param_grid=param_grid)
+grid_result = grid.fit(X_train, y_train)
+
+grid_result.cv_results_['mean_train_score'][grid_result.best_index_]
+
+
+
+#feature selection
+dtree_rfe = RFECV(grid_result, step = 1, scoring = 'accuracy')
+dtree_rfe.fit(X_train, y_train)
+X_rfe = X_train.columns.values[dtree_rfe.get_support()]
+rfe_results = cross_validate(grid_result, data1[X_rfe], data1[Target])
+
+
+
+
+
 #fit model and predict
 model = create_model()
 model.fit(X,Y,epochs=1000,batch_size = dummy1.shape[0], verbose=0)
@@ -92,9 +137,12 @@ prediction = model.predict(dummy2).argmax(axis = 1)
 data2["Survived"]= prediction
 
 
+
+
 #Save to file
 submission = data2[["PassengerId","Survived"]]
 dir ="predictions"
 
 savetofile(submission, cross_val_score_results, dir)
 
+logfile(create_model,cross_val_score_results, dummy1.columns.values)

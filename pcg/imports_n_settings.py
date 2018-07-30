@@ -26,11 +26,13 @@ from keras.layers import Dense, Dropout
 from keras.optimizers import RMSprop
 from keras.wrappers.scikit_learn import KerasClassifier
 
-#sklearn libraries
-from sklearn.model_selection import cross_val_score, train_test_split
+# Model selection and feature selection
+from sklearn.model_selection import cross_val_score, train_test_split, GridSearchCV, cross_validate
+from sklearn.feature_selection import RFECV
+
+# MLA
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
-
 
 #pd table output apperance options
 pd.set_option('display.height', 1000)

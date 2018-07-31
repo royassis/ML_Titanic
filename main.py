@@ -55,7 +55,7 @@ y_test = keras.utils.to_categorical(y_test)
 X= dummy1.values
 Y= keras.utils.to_categorical(data1[Target])
 
-
+"""
 #Cross validation
 def create_model(optimizer='adam',lr=0.0001, loss= 'binary_crossentropy',
                  layer_a=50, layer_b=50,layer_c=50,
@@ -71,9 +71,9 @@ def create_model(optimizer='adam',lr=0.0001, loss= 'binary_crossentropy',
     #optimzer = keras.optimizers.Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
     model.compile(loss=loss, optimizer=optimizer, metrics=['accuracy'])
     return model
-
-
-model_w_Wrapper = KerasClassifier(build_fn=create_model, epochs=1000, batch_size = dummy1.shape[0],verbose=0)
+"""
+"""
+model_w_Wrapper = KerasClassifier(build_fn=create_model2, epochs=1000, batch_size = dummy1.shape[0],verbose=0)
 
 #Model selection
 models = {"NN":model_w_Wrapper,
@@ -88,16 +88,21 @@ for model in models:
     cross_val_score_results[model]=accu
 
 print(cross_val_score_results)
-
+"""
 
 
 # Hyperparameters search
 
 # define the grid search parameters
-model_w_Wrapper = KerasClassifier(build_fn=create_model2, epochs=1, batch_size = 1,verbose=0)
+model_w_Wrapper = KerasClassifier(build_fn=create_model2, epochs=300, batch_size = 500,verbose=1)
 
 #optimizer = ['SGD', 'RMSprop', 'Adagrad', 'Adadelta', 'Adam', 'Adamax', 'Nadam']
-optimizer = [SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam]
+#optimizer = [SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam]
+optimizer = [SGD, RMSprop,Adam, Adamax]
+#loss = ["mean_squared_error", "mean_absolute_error", "mean_absolute_percentage_error",\
+#        "mean_squared_logarithmic_error", "squared_hinge","hinge","categorical_hinge",\
+#        "logcosh","categorical_crossentropy", "sparse_categorical_crossentropy",\
+#        "binary_crossentropy", "kullback_leibler_divergence", "poisson", "cosine_proximity"]
 loss = ["mean_squared_error","binary_crossentropy"]
 
 layer_a= layer_b = layer_c = np.arange(10,40, step=10)
@@ -111,28 +116,25 @@ momentum = np.linspace(0.01 ,0.0001,4)
 
 param_grid = dict(optimizer=optimizer, loss= loss)
 
+
 grid = GridSearchCV(estimator=model_w_Wrapper, param_grid=param_grid)
 grid_result = grid.fit(X_train, y_train)
 
 grid_result.cv_results_['mean_train_score'][grid_result.best_index_]
+grid_result.cv_results_['params'][grid_result.best_index_]
 
 
 
-#feature selection
-dtree_rfe = RFECV(grid_result, step = 1, scoring = 'accuracy')
-dtree_rfe.fit(X_train, y_train)
-X_rfe = X_train.columns.values[dtree_rfe.get_support()]
-rfe_results = cross_validate(grid_result, data1[X_rfe], data1[Target])
-
-
-
+model_w_Wrapper = KerasClassifier(build_fn=create_model2, epochs=1000, batch_size = 10,verbose=1)
+model_w_Wrapper.fit(X_train, y_train)
+a = cross_val_score(model_w_Wrapper,X_train, y_train)
 
 
 #fit model and predict
-model = create_model()
-model.fit(X,Y,epochs=1000,batch_size = dummy1.shape[0], verbose=0)
+model = create_model2()
+model.fit(X,Y,epochs=1000,batch_size = 1, verbose=0)
 
-prediction = model.predict(dummy2).argmax(axis = 1)
+prediction = model_w_Wrapper.predict(dummy2).argmax(axis = 1)
 
 data2["Survived"]= prediction
 

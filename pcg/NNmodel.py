@@ -2,13 +2,13 @@ from pcg.imports_n_settings import *
 from keras.optimizers import SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam
 
 
-def create_model2(optimizer=SGD,lr=0.0001, loss= 'binary_crossentropy',
-                 layer_a=12, layer_b=12,layer_c=12,
-                 activation_a = 'relu' ,activation_b ='relu',activation_c ='relu',):
+def create_model2(optimizer=RMSprop,lr=0.0001, loss= 'binary_crossentropy', input_dim= 21,
+                 layer_a=30, layer_b=30,layer_c=12,
+                 activation_a = 'relu' ,activation_b ='relu',activation_c ='sigmoid',):
 
     # create model
     model = Sequential()
-    model.add(Dense(layer_a, input_dim=21, activation=activation_a))
+    model.add(Dense(layer_a, input_dim=input_dim, activation=activation_a))
     model.add(Dense(layer_b, activation=activation_b))
     model.add(Dense(layer_c, activation=activation_c))
     model.add(Dense(2, activation='softmax'))

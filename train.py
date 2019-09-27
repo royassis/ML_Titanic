@@ -40,8 +40,6 @@ data1['FareBin'].cat.set_categories(cat) #apply if to another group
 data1['AgeBin'].astype(str) #encode it and after the can decode it
 
 
-
-
 x=60
 array = pd.cut(data1['Age'].astype(int), 4, labels = (0, 1, 2, 3), retbins=True)[1]
 def returnBin(arr,x):
@@ -51,34 +49,8 @@ def returnBin(arr,x):
 returnBin(array, x)
 
 
-
 ############Encoding#############
 #-------------------------------#
-
-"""
-What to do with columns 
-
-ID             dont use
-Name           dont use
-Pclass         Allready encodesd
-Title          onehot
-Sex            onehot
-Age            leave as is - continuous  
-SibSp          leave as is
-Parch          leave as is
-Ticket         dont use
-Fare           leave as is
-Cabin          leave
-Embarked       onehot
-"""
-
-#Ways to code:
-# 1. Not inherent order- use one hot
-# 2. ordinal - The problem is encoding ordinal. Ordinal data have order. Such encoding can't be done with labelencoder becuase labelencoderr encodes
-#              by probability.
-#              Need to be able to encode and then save the encoder and use it to encode input samples.
-#              Can encode by breaking to categories but need a way to save the categories and to apply it to new input.
-
 
 #Get relevent columns to encode
 columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin', "Embarked"]
@@ -87,57 +59,6 @@ columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin', "Embarked"]
 #Encode
 label = LabelEncoder()
 
-
-#Version one - encoder is not saved
-def encodeV1():
-    data1['Sex_Code'] = label.fit_transform(data1['Sex'])
-    data1['Embarked_Code'] = label.fit_transform(data1['Embarked'])
-    data1['Title_Code'] = label.fit_transform(data1['Title'])
-    data1['AgeBin_Code'] = label.fit_transform(data1['AgeBin'])
-    data1['FareBin_Code'] = label.fit_transform(data1['FareBin'])
-
-#Version two - use defaultdict but have to change column names manually later on
-def encodeV2():
-    d = defaultdict(LabelEncoder)
-    fit = data1.apply(lambda x: d[x.name].fit_transform(x))
-    return d
-
-#Version three - use defaultdict and create column name dynamiclly
-def encodeV3():
-    d = defaultdict(LabelEncoder)
-    for i in columnsToEnc:
-        data1[i.__str__() + "code"] = d[i].fit_transform(data1[i])
-    return d
-
-#Version four - drop na values or turn them to -1 and then get a list of all values and encode them ---- problematic
-#Version five - use a dictionary ---- can"t decode values
-
-#Version five - don't use binned data, leave continues data as it is and break down catagories with one-hot #a problem with get dummies is when a random input appers will need to convert to one hot
-def encodeV5():
-    pd.get_dummies(data1[columnsToEnc])
-
-#use version three
-version = 3
-
-def encoders(argument): #Dictionary mapping for functions
-    switcher = {
-        1: encodeV1,
-        2: encodeV2,
-        3: encodeV3,
-        #4: encodeV4,
-        #5: encodeV5
-    }
-d = encoders(version)
-
-#Must save encoder(s) at end of process, using "save_obj" in func file:
-save = False
-if (save):
-    save_obj(d, "encoders")
-
-
-
-############Fragmentdata#############
-#-----------------------------------#
 
 #Y column
 Target = ['Survived']
@@ -170,84 +91,3 @@ print('Dummy X Y: ', data1_xy_dummy, '\n')
 
 
 
-
-
-
-"""
-array = data1.values
-X = np.concatenate ((array[:,1:10], array[:,11:]), axis =1)
-Y = array[:,10]
-validation_size = 0.10
-seed = 7
-X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
-
-
-train_labels = keras.utils.to_categorical(Y_train, 7)
-test_labels = keras.utils.to_categorical(Y_validation, 7)
-
-
-model = Sequential()
-model.add(Dense(20, activation='relu', input_shape=(17,)))
-model.add(Dense(20, activation='relu'))
-model.add(Dense(20, activation='relu'))
-model.add(Dense(7, activation='softmax'))
-
-
-
-model.summary()
-
-model.compile(loss='categorical_crossentropy',
-              optimizer=RMSprop(),
-              metrics=['accuracy'])
-
-
-history = model.fit(X_train, train_labels,
-                    batch_size=156,
-                    epochs=1000,
-                    verbose=2,
-                    validation_data=(X_validation, test_labels)
-                    )
-
-
-score = model.evaluate(X_validation, test_labels, verbose=0)
-print('Test loss:', score[0])
-print('Test accuracy:', score[1])
-
-
-
-
-
-
-#Turn NA values to -1 in order to be used in learning algorithms
-#data1.fillna(-1, inplace = True)
-
-
-# Encode whole data1 without NA values but keep data1 whole
-# Pass TF only data1 without NA values
-
-
-"""
-
-
-
-"""
-#Split Cabin column into floor and rooms columns. i.e "C130 C230" ---> C - 130 - 120
-newframe = data1.Cabin.str.split(" ", expand=True)
-data1.Cabin= data1.Cabin.str.extract('(\w)')
-newframe = newframe.apply(lambda x: x.str.extract('(\d+)'))
-data1 = pd.concat([data1, newframe],axis=1)
-
-data1.rename(columns={0: 'cabin#1',1: 'cabin#2',2: 'cabin#3',3: 'cabin#4'}, inplace = True)
-
-#Groupby Ticket and then give each person the count of the group
-grp = data1.groupby("Ticket").size()  #could have also used data1.Ticket.value_counts()
-data1['SameTicket']= data1.Ticket.map(grp)
-
-#Make a  FamilyName column
-data1["FamilyName"]= data1.Name.str.extract('^(\w+)')
-
-#Give group numbers for each group of same ticket
-data1["TicketGrp"]= pd.Categorical(data1.Ticket).codes
-
-data1[labels] = data1[labels].apply(lambda x: d[x.name].fit_transform(x))
-"""

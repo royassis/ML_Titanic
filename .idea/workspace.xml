@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50ecbe03-48ea-4f9e-80c0-073a5003ce28" name="Default" comment="tidy up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcg/imports_and_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcg/imports_and_settings.py" afterDir="false" />
     </list>
     <list id="0f6d44af-ebb4-45dd-8160-2986c16ab0dc" name="change 2" comment="change 2&#10;&#10;(cherry picked from commit f5f034c)">
       <changelist_data name="roy" email="royassisg@gmail.com" date="1512579188000" />
@@ -451,7 +451,19 @@
       <option name="presentableId" value="LOCAL‎00046" />
       <updated>1569609671880</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL‎00047" summary="tidy up">
+      <created>1569609843379</created>
+      <option name="number" value="LOCAL‎00047" />
+      <option name="presentableId" value="LOCAL‎00047" />
+      <updated>1569609843379</updated>
+    </task>
+    <task id="LOCAL‎00048" summary="tidy up">
+      <created>1569609876278</created>
+      <option name="number" value="LOCAL‎00048" />
+      <option name="presentableId" value="LOCAL‎00048" />
+      <updated>1569609876278</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView">

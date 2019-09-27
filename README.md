@@ -23,13 +23,3 @@ Titanic/
 								the file format of files in the predictions dir are of: 
 								"prediction"+prediction_number+date+accuracy 
 
-
-```
-
-
-
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NzYxNDA3MywxMjU5MTkyMDY2LC0xMD
-c4MjI3NTE4LDIwMTAyNDY5OF19
--->

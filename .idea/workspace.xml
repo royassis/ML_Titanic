@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50ecbe03-48ea-4f9e-80c0-073a5003ce28" name="Default" comment="some more changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <list id="0f6d44af-ebb4-45dd-8160-2986c16ab0dc" name="change 2" comment="change 2&#10;&#10;(cherry picked from commit f5f034c)">
       <changelist_data name="roy" email="royassisg@gmail.com" date="1512579188000" />
@@ -408,7 +409,19 @@
       <option name="presentableId" value="LOCAL‎00039" />
       <updated>1569608630858</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL‎00040" summary="some more changes">
+      <created>1569609040920</created>
+      <option name="number" value="LOCAL‎00040" />
+      <option name="presentableId" value="LOCAL‎00040" />
+      <updated>1569609040920</updated>
+    </task>
+    <task id="LOCAL‎00041" summary="some more changes">
+      <created>1569609124567</created>
+      <option name="number" value="LOCAL‎00041" />
+      <option name="presentableId" value="LOCAL‎00041" />
+      <updated>1569609124567</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView">

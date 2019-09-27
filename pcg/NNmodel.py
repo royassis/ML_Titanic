@@ -1,6 +1,5 @@
-from pcg.imports_n_settings import *
-from keras.optimizers import SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam
-
+from pcg.pandas_settings import *
+from tensorflow.keras import SGD, RMSprop, Adagrad, Adadelta, Adam, Adamax, Nadam
 
 def create_model2(optimizer=RMSprop,lr=0.0001, loss= 'binary_crossentropy', input_dim= 21,
                  layer_a=30, layer_b=30,layer_c=12,

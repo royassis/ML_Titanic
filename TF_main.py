@@ -1,5 +1,5 @@
-from pcg.imports2 import *
-from pcg.funcs import *
+from pcg.imports import *
+from pcg.functions import *
 from collections import defaultdict
 
 

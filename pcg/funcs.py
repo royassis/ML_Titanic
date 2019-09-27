@@ -13,14 +13,15 @@ def ranker (df):
 def extracter (row):
     return  re.match('\d+|$', str(row))[0]
 
-
 def normalized(arr):
-    arr.astype(float)
-    arrC= arr.copy()
+    arr = arr.astype(float, copy=False)
+    sum= arr.sum()
     for x in range(len(arr)):
-        arrC[x] = arr[x]/arr.sum()
-    return arrC
+        arr[x] = arr[x]/sum
+    return arr
 
+
+normalized(np.array([1,2,3]))
 
 def votePrec (arr):
 

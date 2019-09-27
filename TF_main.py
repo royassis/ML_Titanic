@@ -29,8 +29,26 @@ validTitles = (data1["Title"].value_counts()/data1["Title"].shape[0])<0.1
 data1["Title"] = data1["Title"].apply(lambda x: "Misc" if validTitles.loc[x] == True else x )
 
 #Binning relevent columns
-data1['AgeBin'] = pd.cut(data1['Age'].astype(int), 5)
-data1['FareBin'] = pd.qcut(data1['Fare'], 4)
+data1['AgeBin'] = pd.cut(data1['Age'].astype(int), 5) #  pd.cut(data1['Age'].astype(int), 4, labels = (0,1,2,3), retbins=True)[1]  ;;    data1['AgeBin'].unique()
+data1['FareBin'] = pd.qcut(data1['Fare'], 4) # pd.qcut(data1['Fare'], 4, labels =(0,1,2,3), retbins = True)[1]
+
+data1['FareBin'].dtypes.categories.values.astype(str)
+
+#How to change categories cat group
+cat = data1['AgeBin'].cat.categories #save categories of one group
+data1['FareBin'].cat.set_categories(cat) #apply if to another group
+data1['AgeBin'].astype(str) #encode it and after the can decode it
+
+
+
+
+x=60
+array = pd.cut(data1['Age'].astype(int), 4, labels = (0, 1, 2, 3), retbins=True)[1]
+def returnBin(arr,x):
+    for i in range(len(array)-1):
+        if array[i]<=x and x<=array[i+1] :
+            return (i)
+returnBin(array, x)
 
 
 
@@ -55,15 +73,20 @@ Embarked       onehot
 """
 
 #Ways to code:
-#1.one hot(if not inherent order) 2.ordinal
+# 1. Not inherent order- use one hot
+# 2. ordinal - The problem is encoding ordinal. Ordinal data have order. Such encoding can't be done with labelencoder becuase labelencoderr encodes
+#              by probability.
+#              Need to be able to encode and then save the encoder and use it to encode input samples.
+#              Can encode by breaking to categories but need a way to save the categories and to apply it to new input.
+
 
 #Get relevent columns to encode
 columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin', "Embarked"]
 
+
 #Encode
 label = LabelEncoder()
 
-#label.fit_transform([str(x) for x in data1.AgeBin.tolist()])
 
 #Version one - encoder is not saved
 def encodeV1():

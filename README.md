@@ -4,10 +4,6 @@
 ### Short description
 The titanic dataset as a machine learning and data science exercise.
 
-
-### Proj. resources 
-The project, especially the machine learning part was heavily based on [this machine learning tutorial](https://machinelearningmastery.com/machine-learning-in-python-step-by-step/).
-
 ### Proj. structure
 
 

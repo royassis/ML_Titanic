@@ -1,21 +1,25 @@
 from pcg.imports_and_settings import *
 
-#Data cleaning and preprocessing#
-
 
 #Load df from file
 df = pd.read_csv(r"data\train.csv")
 
+#Data cleaning and preprocessing#
+#Deal with NA values#
 
-#Deal with NA values
+#Display NA count per column
 df.isnull().sum()
 
+#Replace Age NA values with median
 df['Age'].fillna(df['Age'].median(), inplace=True)
 
+#Replace Embarked NA values with mode
 df['Embarked'].fillna(df['Embarked'].mode()[0], inplace = True)
 
+#Replace Fare NA values with median
 df['Fare'].fillna(df['Fare'].median(), inplace = True)
 
+#Drop Cabin column
 df.drop("Cabin", inplace =True, axis = 1)
 
 
@@ -23,50 +27,28 @@ df.drop("Cabin", inplace =True, axis = 1)
 df['FamilySize'] = df['Parch'] + df['SibSp'] + 1
 
 
+####Create new featuers####
+
 #Make a column is alone
 df['IsAlone'] = df['FamilySize'].dropna().apply(lambda x: 1 if x == 1 else 0)
-
 
 #Make a Title column
 df["Title"]= df.Name.str.extract('^.*?,\s(.*?)\.', expand = False)
 
-
 #CLean Title
 validTitles = (df["Title"].value_counts() / df["Title"].shape[0]) < 0.1
-
 df["Title"] = df["Title"].apply(lambda x: "Misc" if validTitles.loc[x] == True else x)
 
-
 #Binning relevent columns
-df['AgeBin'] = pd.cut(df['Age'].astype(int), 5) #  pd.cut(df['Age'].astype(int), 4, labels = (0,1,2,3), retbins=True)[1]  ;;    df['AgeBin'].unique()
-
-df['FareBin'] = pd.qcut(df['Fare'], 4) # pd.qcut(df['Fare'], 4, labels =(0,1,2,3), retbins = True)[1]
-
+df['AgeBin'] = pd.cut(df['Age'].astype(int), 5)
+df['FareBin'] = pd.qcut(df['Fare'], 4)
 df['FareBin'].dtypes.categories.values.astype(str)
 
 
-#How to change categories cat group
-cat = df['AgeBin'].cat.categories #save categories of one group
-
-df['FareBin'].cat.set_categories(cat) #apply if to another group
-
-df['AgeBin'].astype(str) #encode it and after the can decode it
-
-
-x=60
-array = pd.cut(df['Age'].astype(int), 4, labels = (0, 1, 2, 3), retbins=True)[1]
-def returnBin(arr,x):
-    for i in range(len(array)-1):
-        if array[i]<=x and x<=array[i+1] :
-            return (i)
-returnBin(array, x)
-
-############Encoding#############
+####Encode####
 #Get relevent columns to encode
 columnsToEnc=['Sex', 'Title', 'AgeBin', 'FareBin', "Embarked"]
 
-
-#Encode
 label = LabelEncoder()
 
 

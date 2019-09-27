@@ -1,10 +1,6 @@
 from pcg.imports_and_settings import *
-from pcg.functions import *
-from collections import defaultdict
-
 
 #Data cleaning and preprocessing#
-#-------------------------------#
 #Load df from file
 data1 = pd.read_csv("train.csv")
 

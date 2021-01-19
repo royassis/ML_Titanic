@@ -3,6 +3,7 @@ import re
 import datetime
 import numpy as np
 import random
+import pickle
 
 #Define an iterative file name for scv files created
 def savetofile(dframe, score_dict, dir):
@@ -85,9 +86,6 @@ def votePrec (arr):
         else:
             arr[arr.argmax()] = 0
             normalized(arr)
-
-
-import pickle
 
 def save_obj(obj, name ):
     with open( name + '.pkl', 'wb+') as f:

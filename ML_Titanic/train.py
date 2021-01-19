@@ -1,8 +1,21 @@
-from pcg.imports_and_settings import *
+import sys
+import scipy as sp
+import numpy as np
+import matplotlib
+import pandas as pd
+import sklearn
+
+#pd table output apperance options
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
+pd.set_option('display.max_colwidth', -1)
+pd.set_option('display.notebook_repr_html',True)
+pd.set_option("display.colheader_justify", "left")
 
 
 #Load df from file
-df = pd.read_csv(r"data\train.csv")
+df = pd.read_csv(r"../data/train.csv")
 
 #Data cleaning and preprocessing#
 #Deal with NA values#
